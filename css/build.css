@@ -127,6 +127,7 @@ body {
 
 .accordion-tab {
     display: none;
+    position: relative;
     cursor: pointer;
 		-webkit-touch-callout: none;
 		-webkit-user-select: none;
@@ -186,7 +187,6 @@ body {
     position: relative;
     top: -15px;
 }
-
 
 /* Responsive */
 @media screen and (max-width: 767px) {

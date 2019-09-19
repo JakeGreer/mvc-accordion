@@ -1,0 +1,98 @@
+ul {
+    margin-left: 1.25rem;
+    list-style-type: disc;
+}
+ul, ol, dl {
+    margin-bottom: 1rem;
+    list-style-position: outside;
+    line-height: 1.6;
+}
+div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, p, blockquote, th, td {
+    margin: 0;
+    padding: 0;
+}
+*, ::before, ::after {
+    -webkit-box-sizing: inherit;
+    box-sizing: inherit;
+}
+body {
+    font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
+    font-weight: normal;
+    line-height: 1.5;
+    color: #0a0a0a;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.tabs {
+    margin: 0;
+    border: 1px solid #e6e6e6;
+    background: #fefefe;
+    list-style-type: none;
+}
+
+.tabs::after {
+    clear: both;
+}
+.tabs::before, .tabs::after {
+    display: table;
+    content: ' ';
+    -webkit-flex-basis: 0;
+    -ms-flex-preferred-size: 0;
+    flex-basis: 0;
+    -webkit-box-ordinal-group: 2;
+    -webkit-order: 1;
+    -ms-flex-order: 1;
+    order: 1;
+}
+
+.tab-title {
+    float: left;
+}
+
+.tab-title > a {
+    outline: 0;
+}
+
+.tab-title > a:focus, .tab-title.active > a{
+    background: #e6e6e6;
+    color: #1779ba;
+}
+
+.tab-title > a {
+    display: block;
+    padding: 1.25rem 1.5rem;
+    font-size: 0.75rem;
+    line-height: 1;
+    color: #1779ba;
+}
+
+a {
+    line-height: inherit;
+    color: #1779ba;
+    text-decoration: none;
+    cursor: pointer;
+    background-color: transparent;
+}
+
+.tabs-content {
+    border: 1px solid #e6e6e6;
+        border-top-color: rgb(230, 230, 230);
+        border-top-style: solid;
+        border-top-width: 1px;
+    border-top: 0;
+    background: #fefefe;
+    color: #0a0a0a;
+    -webkit-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+.tab-panel.active {
+    display: block;
+}
+
+.tab-panel {
+    display: none;
+    padding: 1rem;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+}

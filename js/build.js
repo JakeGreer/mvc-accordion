@@ -17,20 +17,18 @@ class Model {
     constructor() {
         this.tabs = [
             {
-                hasHeader: false,
                 linkText: 'Fit Guide',
                 bodyText: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Volutpat est velit egestas dui id ornare arcu odio. Integer quis auctor elit sed vulputate. Pharetra magna ac placerat vestibulum lectus mauris ultrices eros in. Sapien pellentesque habitant morbi tristique senectus et netus et malesuada. Mi proin sed libero enim sed faucibus. Maecenas volutpat blandit aliquam etiam erat velit scelerisque in dictum. Venenatis urna cursus eget nunc scelerisque viverra mauris in. Nibh tortor id aliquet lectus proin nibh. Euismod elementum nisi quis eleifend quam adipiscing vitae proin sagittis. Lectus nulla at volutpat diam ut venenatis tellus in. Bibendum est ultricies integer quis auctor elit sed vulputate. Odio morbi quis commodo odio aenean.',
                 active: true
             },
             {
-                hasHeader: false,
                 linkText: 'Care',
                 bodyText: 'Dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ultrices tincidunt arcu non sodales neque sodales ut. Ipsum dolor sit amet consectetur adipiscing. Faucibus vitae aliquet nec ullamcorper. Ac turpis egestas maecenas pharetra. Pellentesque id nibh tortor id. Semper eget duis at tellus at. Elementum nibh tellus molestie nunc non blandit massa. Facilisis mauris sit amet massa vitae tortor condimentum. Justo nec ultrices dui sapien eget mi proin sed. Eu scelerisque felis imperdiet proin. In hendrerit gravida rutrum quisque non tellus orci. Aliquet enim tortor at auctor urna. Tristique senectus et netus et malesuada fames ac. Enim lobortis scelerisque fermentum dui faucibus in ornare quam viverra. Nunc scelerisque viverra mauris in aliquam sem. Purus sit amet luctus venenatis lectus. Vitae proin sagittis nisl rhoncus.',
                 active: false
             },
             {
-                hasHeader: true,
                 linkText: 'Materials',
+                customContent: '<ul><li><h2>50%</h2><span>cashmere</span></li><li><h2>46%</h2><span>wool</span></li><li><h2>4%</h2><span>modal</span></li></ul>',
                 bodyText: 'Ipsum dolor sit amet, consectetur adipiscing elit. Nullam nibh arcu, ultricies nec purus quis, consequat luctus orci. Sed non mi nisi. Donec vulputate erat odio, eget lacinia lectus accumsan sed. Phasellus diam lorem, ullamcorper quis velit a, ultricies facilisis turpis. Sed laoreet efficitur odio, ut consequat arcu iaculis non. Quisque lectus ligula, venenatis quis ullamcorper vitae, euismod in nisi. Sed sed arcu tortor. Phasellus a iaculis metus, sed suscipit dui. Nunc mollis, ipsum at tristique dignissim, enim mi sodales nulla, sed dapibus lorem tortor et nisi.',
                 active: false
             }
@@ -78,8 +76,8 @@ class View {
 
     initializeTabs(tabs, handler) {
         if (tabs.length !== 0) {
-            tabs.forEach( (tab, i) => {
 
+            tabs.forEach( (tab, i) => {
                 // Create nodes
                 var tabNumber = i + 1;
                 var li = this.createElement('li', 'tab-title');
@@ -89,7 +87,11 @@ class View {
                 var accordionIcon = this.createElement('span')
                 var panel = this.createElement('div', 'tab-panel');
                 var panelBody = this.createElement('p', 'tab-body');
-
+                var customContent = null;
+                if(tab.hasOwnProperty('customContent')) {
+                    customContent = this.createElement('div', 'custom-content-wrapper');
+                    customContent.innerHTML = tab.customContent;
+                }
                 // Set Attributes and Text
                 link.setAttribute('data-index', i);
                 accordionContainer.setAttribute('data-index', i);
@@ -115,6 +117,7 @@ class View {
 
                 // Append nodes
                 li.append( link );
+                if(customContent) panel.append(customContent);
                 panel.append(panelBody);
                 accordionContainer.append( accordionHeader, accordionIcon);
                 this.tabList.append(li);

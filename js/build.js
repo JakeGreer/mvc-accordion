@@ -124,17 +124,13 @@ class View {
         }
     
         // Debugging
-        console.log(tabs)
+        //console.log(tabs)
     }
 
     _handleTabClick = (event, handler) => {
         var index = event.currentTarget.dataset.index;
         if(index) {
             handler(index);
-        }
-        else {
-            //Debugging
-            console.log("Error tab number can't contain: ", index);
         }
     }
   

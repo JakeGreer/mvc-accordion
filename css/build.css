@@ -11,6 +11,15 @@ div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, p, blockquote, t
     margin: 0;
     padding: 0;
 }
+
+a {
+    line-height: inherit;
+    color: #1779ba;
+    text-decoration: none;
+    cursor: pointer;
+    background-color: transparent;
+}
+
 *, ::before, ::after {
     -webkit-box-sizing: inherit;
     box-sizing: inherit;
@@ -23,63 +32,42 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
-.tabs {
-    margin: 0;
-    border: 1px solid #e6e6e6;
-    background: #fefefe;
-    list-style-type: none;
+#root {
+    margin-top: 50px;
 }
 
-.tabs::after {
-    clear: both;
-}
-.tabs::before, .tabs::after {
-    display: table;
-    content: ' ';
-    -webkit-flex-basis: 0;
-    -ms-flex-preferred-size: 0;
-    flex-basis: 0;
-    -webkit-box-ordinal-group: 2;
-    -webkit-order: 1;
-    -ms-flex-order: 1;
-    order: 1;
+.tabs {
+    margin: 0;
+    background: #fefefe;
+    list-style-type: none;
+    text-align: center;
 }
 
 .tab-title {
-    float: left;
-}
-
-.tab-title > a {
-    outline: 0;
+    display: inline-block;
+    outline: 1px solid #000;
 }
 
 .tab-title > a:focus, .tab-title.active > a{
-    background: #e6e6e6;
-    color: #1779ba;
+    background: #000;
+    color: #fff;
 }
 
 .tab-title > a {
     display: block;
-    padding: 1.25rem 1.5rem;
+    padding: 0.5rem 1.5rem;
     font-size: 0.75rem;
     line-height: 1;
-    color: #1779ba;
-}
-
-a {
-    line-height: inherit;
-    color: #1779ba;
-    text-decoration: none;
-    cursor: pointer;
-    background-color: transparent;
+    outline: 0; 
+    color: #000;
+    font-family: open sans;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 18px;
+    letter-spacing: 2px;
 }
 
 .tabs-content {
-    border: 1px solid #e6e6e6;
-        border-top-color: rgb(230, 230, 230);
-        border-top-style: solid;
-        border-top-width: 1px;
-    border-top: 0;
     background: #fefefe;
     color: #0a0a0a;
     -webkit-transition: all 0.5s ease;

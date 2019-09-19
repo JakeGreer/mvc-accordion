@@ -28,7 +28,7 @@ class Model {
             },
             {
                 linkText: 'Materials',
-                customContent: '<ul><li><h2>50%</h2><span>cashmere</span></li><li><h2>46%</h2><span>wool</span></li><li><h2>4%</h2><span>modal</span></li></ul>',
+                customContent: '<div class="row"><div class="column"><h2>50%</h2><span>cashmere</span></div><div class="column"><h2>46%</h2><span>wool</span></div><div class="column"><h2>4%</h2><span>modal</span></div></div>',
                 bodyText: 'Ipsum dolor sit amet, consectetur adipiscing elit. Nullam nibh arcu, ultricies nec purus quis, consequat luctus orci. Sed non mi nisi. Donec vulputate erat odio, eget lacinia lectus accumsan sed. Phasellus diam lorem, ullamcorper quis velit a, ultricies facilisis turpis. Sed laoreet efficitur odio, ut consequat arcu iaculis non. Quisque lectus ligula, venenatis quis ullamcorper vitae, euismod in nisi. Sed sed arcu tortor. Phasellus a iaculis metus, sed suscipit dui. Nunc mollis, ipsum at tristique dignissim, enim mi sodales nulla, sed dapibus lorem tortor et nisi.',
                 active: false
             }
@@ -161,17 +161,20 @@ class View {
 
         var tabLinks = this.tabList.children;
         var tabPanels = this.tabContent.querySelectorAll('.tab-panel');
+        var accordionTabs = this.tabContent.querySelectorAll('.accordion-tab');
         var accordionIcons = this.tabContent.querySelectorAll('.accordion-tab span');
 
         for(var i = 0; i < length; i++) {
             if(tabs[i].active) {
                 tabLinks[i].classList.add('active');
                 tabPanels[i].classList.add('active');
-                accordionIcons[i].innerHTML = '&#8722;'
+                accordionTabs[i].classList.add('active');
+                accordionIcons[i].innerHTML = '&#8722;';
             }
             else {
                 tabLinks[i].classList.remove('active');
                 tabPanels[i].classList.remove('active');
+                accordionTabs[i].classList.remove('active');
                 accordionIcons[i].innerHTML = '&#x2b;';
             }
         }

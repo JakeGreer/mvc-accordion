@@ -1,3 +1,4 @@
+/* Generic */
 ul {
     margin-left: 1.25rem;
     list-style-type: disc;
@@ -32,6 +33,7 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
+/* App */
 #root {
     position: relative;
     margin-top: 50px;
@@ -51,10 +53,9 @@ body {
 .column {
     position:relative;
     width:100%;
-    padding-right:15px;
-    padding-left:15px;
 }
 
+/* Tabs */
 .tabs {
     margin: 0;
     background: #fefefe;
@@ -76,7 +77,7 @@ body {
     border-right: none;
 }
 
-.tab-title > a:focus, .tab-title.active > a {
+.tab-title.active > a {
     background: #000;
     color: #fff;
 }
@@ -93,6 +94,9 @@ body {
     font-size: 18px;
     letter-spacing: 2px;
     -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -ms-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
     transition: all 0.5s ease;
 }
 
@@ -112,80 +116,80 @@ body {
 .tab-panel {
     display: none;
     padding: 1rem;
-        padding-top: 1rem;
+        padding-top: 3rem;
         padding-bottom: 1rem;
+    -webkit-transition: all 0.6s ease;
+    -moz-transition: all 0.6s ease;
+    -ms-transition: all 0.6s ease;
+    -o-transition: all 0.6s ease;
+    transition: all 0.6s ease;
+}
+
+.accordion-tab {
+    display: none;
+    position: relative;
+    cursor: pointer;
+		-webkit-touch-callout: none;
+		-webkit-user-select: none;
+		-khtml-user-select: none;
+		-moz-user-select: none;
+		-ms-user-select: none;
+        user-select: none;
+    justify-content: space-between;
+    border-bottom: 1px solid #333;
+    margin: 0;
+    padding: 10px 20px;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -ms-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+.accordion-tab.active {
+    border-bottom: none;
 }
 
 .custom-content-wrapper {
     margin: 0 -15px 30px -15px;
 }
 
-.custom-content-wrapper ul {
+/* .custom-content-wrapper ul {
     list-style: none;
-}
+    position: relative;
+} */
 
-.custom-content-wrapper ul li {
-    display: inline-block;
+.custom-content-wrapper .row .column {
+    /* display: inline-block; */
     text-align: center;
-    padding: 0 15px;
-    width: 17%;
+    -ms-flex:0 0 33.333333%;
+    flex:0 0 33.333333%;
+    max-width:33.333333%
 }
 
-.custom-content-wrapper ul li:nth-child(even) span {
-    padding-bottom: 15px;
-    border-bottom: 1px solid #000;
+.custom-content-wrapper .row .column:nth-child(even):after {
+    content: ""; 
+    display: block;
+    margin: 0 auto;
+    width: 25%;
+    padding-top: 7px;
+    border-bottom: 1px solid black;
 }
 
-.custom-content-wrapper ul li h2 {
+.custom-content-wrapper .row .column h2 {
     font-size: 50px;
     font-weight: 100;
     
 }
 
-.custom-content-wrapper ul li span {
-    font-size: 16px;
+.custom-content-wrapper .row .column span {
+    font-size: 20px;
     position: relative;
     top: -15px;
 }
 
-
-.accordion-tab {
-    display: none;
-}
-
-
-@media screen and (max-width: 950px) {
-
-    .custom-content-wrapper ul li {
-        min-width: 100px;
-    }
-
-    .custom-content-wrapper ul li h2 {
-        font-size: 30px;
-    }
-}
-
-@media screen and (max-width: 818px) {
-    .tab-title > a {
-        font-size: 14px;
-    }
-}
-
-@media screen and (min-width: 480px) and (max-width: 818px) {
-    .tab-title > a {
-        font-size: 10px;
-    }
-}
-
-@media screen and (max-width: 704px) {
-
-    .custom-content-wrapper ul li {
-        min-width: 80px;
-        padding: 9px;
-    }
-}
-
-@media screen and (max-width: 480px) {
+/* Responsive */
+@media screen and (max-width: 767px) {
 	.tabs {
 		display: none;
     }
@@ -194,19 +198,8 @@ body {
         margin-left: 5%;
     }
 	.accordion-tab {
-		border-bottom: 1px solid #333;
-		margin: 0;
-		padding: 5px 20px;
-		display: block;
-		cursor: pointer;
-		-webkit-touch-callout: none;
-		-webkit-user-select: none;
-		-khtml-user-select: none;
-		-moz-user-select: none;
-		-ms-user-select: none;
-        user-select: none;
-        display: flex;
-        justify-content: space-between;
+		display: flex;
+		
     }
     .accordion-tab h3 {
         text-align: left;
@@ -221,4 +214,16 @@ body {
         -webkit-transition: all 0.5s ease;
         transition: all 0.5s ease;
 	}
+}
+
+@media screen and (max-width: 470px) {
+    .custom-content-wrapper .row .column h2 {
+        font-size: 35px;
+        
+    }
+    
+    .custom-content-wrapper .row .column span {
+        font-size: 16px;
+        top: -10px;
+    }
 }

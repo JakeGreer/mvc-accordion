@@ -1,6 +1,6 @@
 # mvc-accordion
 
-######Pure JavaScript MVC Model Tabs to Accordion
+###### Pure JavaScript MVC Model Tabs to Accordion
 
 ### Features
 - Fully responsive tab component that reduces to an accordion in mobile;
